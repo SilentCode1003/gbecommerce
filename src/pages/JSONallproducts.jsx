@@ -1,4 +1,4 @@
-import React, { useState,  } from 'react';
+import React, { useEffect, useState,  } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTag } from 'react-icons/fa';
 import Footer from '../components/Footer';
@@ -15,6 +15,18 @@ const JsonALLproducts = () => {
   const [type, setType] = useState('');
   const [filteredItems, setFilteredItems] = useState(productsData);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true); // Correct state definition
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch('/api/products/getproducts');
+      const data = await response.json();
+      setProducts(data.data);
+    };
+    fetchProducts();
+  }, [products]);
+
+
 
   const totalPages = Math.ceil(filteredItems.length / productsPerPage);
 
@@ -141,7 +153,7 @@ const JsonALLproducts = () => {
                   <Select.Option key="all" value="">
                     ----------- All Categories -----------
                   </Select.Option>
-                  {Array.from(new Set(productsData.map((product) => product.type))).map(
+                  {Array.from(new Set(products.map((product) => product.category))).map(
                     (category, index) => (
                       <Select.Option key={index} value={category}>
                         {category}
@@ -181,24 +193,24 @@ const JsonALLproducts = () => {
         <div className="bg--100  xl:px-[10rem] px-8 py-4 ">
           <h2 className=" text-xl font-bold mb-4 text-gray-800">Search Results</h2>
           <div className="bg--100 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 ">
-            {currentProducts.length > 0 ? (
-              currentProducts.map((items) => (
+            {products.length > 0 ? (
+              products.map((items) => (
                 <Link to={`/products/${items.id}`} key={items.id}>
                   {/* <div className="p-4  bg--100 rounded-lg  hover:shadow-lg transition hover:border-red-500 hover:border-[1.5px] hover:shadow-[0px_4px_10px_rgba(0,0,0,0.3)]"> */}
                   {/* <div className="p-4  bg--100 rounded-lg shadow-lg hover:shadow-lg transition hover:border-red-500 hover:border-[1.5px] hover:shadow-[0px_4px_10px_rgba(0,0,0,0.3)] "> */}
                   <div className={CardContainer}>
                     <img
-                      src={items.imageUrl}
-                      alt={items.title}
+                      src={items.image}
+                      alt={items.model}
                       className={CardImage}
                     />
                     <div className='bg--100 w-full h-full p-[.5rem] pb-[2rem]'>
                       <div className="space-y-[.2rem]">
-                        <h3 className="text-[0.8rem] font-semibold xl:text-[0.9rem] truncate text-left">{items.title}</h3>
-                        <h4 className="text-[0.6rem] text-md font-regular truncate">{items.capacity}</h4>
-                        <h4 className="text-[0.6rem] text-md font-regular truncate">{items.topology}</h4>
+                        <h3 className="text-[0.8rem] font-semibold xl:text-[0.9rem] truncate text-left">{items.model}</h3>
+                        <h4 className="text-[0.6rem] text-md font-regular truncate">{items.quantity}</h4>
+                        <h4 className="text-[0.6rem] text-md font-regular truncate">{items.description}</h4>
                         {/* <Rating /> */}
-                        <Rate disabled allowHalf defaultValue={2.5} />
+                        <Rate disabled allowHalf defaultValue={5} />
                       </div>
                     </div>
 
