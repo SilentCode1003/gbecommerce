@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "Card Title 1",
+      "description": "This is the first card description.",
+      "imageUrl": "https://via.placeholder.com/400x200",
+      "tags": ["#tag1", "#tag2"]
+    },
+    {
+      "id": 2,
+      "title": "Card Title 2",
+      "description": "This is the second card description.",
+      "imageUrl": "https://via.placeholder.com/400x200",
+      "tags": ["#tag3", "#tag4"]
+    },
+    {
+      "id": 3,
+      "title": "Card Title 3",
+      "description": "This is the third card description.",
+      "imageUrl": "https://via.placeholder.com/400x200",
+      "tags": ["#tag5", "#tag6"]
+    }
+  ]
+  

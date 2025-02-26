@@ -1,0 +1,141 @@
+.footercontainer {
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px ;
+    border-radius: 20px;
+    margin: 1% 10% 2% 10%;
+    gap: 50px;
+    top: 20px;
+  
+    
+}
+
+.footer-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 20px; */
+}
+
+.newslettertext {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.newsletterbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    width: 100%; /* Make sure the width fits the container */
+}
+
+.input-container {
+    position: relative;
+    width: 100%; /* Input container takes up full width */
+}
+
+.input-icon {
+    position: absolute;
+    left: 19px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.footer-input {
+    background-color: #F0F0F0;
+    color: black;
+    padding: 0.75rem 2rem 0.75rem 3.5rem;
+    border-radius: 62px;
+    border: 1px solid transparent; 
+    outline: none;
+    width: 100%; /* Ensure full width */
+    transition: border-color 0.3s;
+}
+
+.footer-input:focus {
+    border-color: #434343; 
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    background-color: #FFFFFF;
+}
+
+.footer-input:hover {
+    border-color: #ff0707;
+    border-width: 1px;
+}
+
+.footer-button {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    border-radius: 60px;
+    cursor: pointer;
+    width: auto;
+    transition: background-color 0.3s ease; /* Adds a smooth transition */
+}
+
+.footer-button {
+    padding: 10px 20px;
+    background-color: #d4d4d4;
+    color: black;
+    border: 2px solid transparent;
+    font-weight: bold;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 
+        background-color 0.3s ease, 
+        border-color 0.3s ease, 
+        box-shadow 0.3s ease, 
+        transform 0.3s ease; /* Smooth transitions */
+}
+
+.footer-button:hover {
+    background-color: #b91c1c;
+    color: white;
+    border-color: #ffffff;
+    box-shadow: 0 0px 20px rgba(255, 0, 0, 0.6); /* Red shadow */
+}
+
+.footer-button:active {
+    background-color: #801616; /* Slightly darker background on tap */
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4); /* Smaller red shadow on tap */
+    /* transform: scale(0.95);  */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footercontainer {
+        flex-direction: column;
+        padding: 20px 2rem;
+        gap: 20px;
+        margin: 1% 5% 2% 5%;
+    }
+
+    .newsletterbox {
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-input, .footer-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .newslettertext {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-button {
+        padding: 8px 15px;
+    }
+}

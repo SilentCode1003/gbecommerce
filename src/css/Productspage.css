@@ -1,0 +1,23 @@
+.card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .rating {
+    color: #ffc107; /* Example color for the rating stars */
+  }
+  
+  .text1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .text2 {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  
